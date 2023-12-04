@@ -88,6 +88,7 @@ RUN apt-get update && apt-get -y upgrade && apt-get install -y postgresql-client
 RUN pg_restore --version
 RUN psql --version
 
+#Add github user 
 RUN useradd github && \
     mkdir -p /home/github && \
     chown -R github:github /home/github && \
