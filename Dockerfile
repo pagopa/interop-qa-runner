@@ -94,6 +94,7 @@ RUN useradd github && \
     chown -R github:github /home/github && \
     chown -R github:github /actions-runner
 
+
 WORKDIR /home/github
 
 COPY entrypoint.sh ./entrypoint.sh
