@@ -81,6 +81,10 @@ RUN apt-get update
 RUN apt-get install nodejs -y
 RUN node -v
 
+# install pnpm
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
+RUN pnpm --version
+
 # install psql client and pg_restore
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee  /etc/apt/sources.list.d/pgdg.list
