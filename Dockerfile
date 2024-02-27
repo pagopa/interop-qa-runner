@@ -81,13 +81,6 @@ RUN apt-get update
 RUN apt-get install nodejs -y
 RUN node -v
 
-# install pnpm
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash -
-ENV PNPM_HOME="/root/.local/share/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
-RUN pnpm --version
-
-
 # install psql client and pg_restore
 RUN wget --quiet -O - https://www.postgresql.org/media/keys/ACCC4CF8.asc | apt-key add -
 RUN echo "deb http://apt.postgresql.org/pub/repos/apt/ `lsb_release -cs`-pgdg main" | tee  /etc/apt/sources.list.d/pgdg.list
@@ -108,4 +101,11 @@ COPY entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
 USER github
+
+# install pnpm
+RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash - 
+ENV HOME=/home/github
+ENV PNPM_HOME="$HOME/.local/share/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+
 ENTRYPOINT ["/home/github/entrypoint.sh"]
