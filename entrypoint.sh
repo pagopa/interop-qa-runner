@@ -48,4 +48,9 @@ fi
 
 # Start the runner.
 printf "Executing GitHub Runner for $GITHUB_REPOSITORY\n"
-. /actions-runner/run.sh
+
+if [[ -n $ECS_TASK_MAX_DURATION_SECONDS ]]; then
+	timeout  --signal=KILL $ECS_TASK_MAX_DURATION_SECONDS . /actions-runner/run.sh
+else
+	. /actions-runner/run.sh
+fi
