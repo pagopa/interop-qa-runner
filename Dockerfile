@@ -99,7 +99,6 @@ WORKDIR /home/github
 
 COPY stopRunnerTimeout.sh ./stopRunnerTimeout.sh
 RUN chmod +x ./stopRunnerTimeout.sh
-
 COPY entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
