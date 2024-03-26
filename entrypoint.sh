@@ -41,9 +41,9 @@ fi
 printf "Configuring GitHub Runner for $GITHUB_REPOSITORY_BANNER\n"
 printf "\tRunner Name: $RUNNER_NAME\n\tWorking Directory: $WORK_DIR\n\tReplace Existing Runners: $REPLACEMENT_POLICY_LABEL\n"
 if [ "$INTERACTIVE" == "FALSE" ]; then
-	echo -ne "$REPLACEMENT_POLICY" | . /actions-runner/config.sh --name $RUNNER_NAME --url $GITHUB_REPOSITORY --token $GITHUB_TOKEN --agent $RUNNER_NAME --work $WORK_DIR --disableupdate
+	echo -ne "$REPLACEMENT_POLICY" | . /actions-runner/config.sh --name $RUNNER_NAME --url $GITHUB_REPOSITORY --token $GITHUB_TOKEN --agent $RUNNER_NAME --work $WORK_DIR
 else
-	. /actions-runner/config.sh --name $RUNNER_NAME --url $GITHUB_REPOSITORY --token $GITHUB_TOKEN --agent $RUNNER_NAME --work $WORK_DIR --disableupdate
+	. /actions-runner/config.sh --name $RUNNER_NAME --url $GITHUB_REPOSITORY --token $GITHUB_TOKEN --agent $RUNNER_NAME --work $WORK_DIR 
 fi
 
 # Start the runner.
