@@ -97,8 +97,9 @@ RUN useradd github && \
 
 WORKDIR /home/github
 
-COPY stopRunnerTimeout.sh ./stopRunnerTimeout.sh
-RUN chmod +x ./stopRunnerTimeout.sh
+COPY stopRunnerProcess.sh ./stopRunnerProcess.sh
+RUN chmod +x ./stopRunnerProcess.sh
+
 COPY entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
