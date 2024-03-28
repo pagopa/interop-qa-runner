@@ -97,8 +97,8 @@ RUN useradd github && \
 
 WORKDIR /home/github
 
-COPY stopRunnerProcess.sh ./stopRunnerProcess.sh
-RUN chmod +x ./stopRunnerProcess.sh
+COPY killProcess.sh ./killProcess.sh
+RUN chmod +x ./killProcess.sh
 
 COPY entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
