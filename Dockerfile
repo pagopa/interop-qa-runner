@@ -2,7 +2,7 @@ FROM ubuntu:22.04@sha256:a8fe6fd30333dc60fc5306982a7c51385c2091af1e0ee887166b40a
 
 ARG KUBECTL_VERSION=1.25.16
 
-RUN apt-get update && apt-get install -y curl zip unzip jq ca-certificates curl wget apt-transport-https lsb-release gnupg git
+RUN apt-get update && apt-get install -y curl zip unzip jq ca-certificates curl wget apt-transport-https lsb-release gnupg git gettext-base
 
 # Create a folder
 RUN mkdir actions-runner
