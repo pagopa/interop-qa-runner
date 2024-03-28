@@ -50,7 +50,7 @@ fi
 printf "Executing GitHub Runner for $GITHUB_REPOSITORY\n"
 
 if [[ -n $ECS_TASK_MAX_DURATION_SECONDS ]]; then
-	sh /home/github/stopRunnerProcess.sh "run.sh" &
+	. /home/github/stopRunnerProcess.sh "run.sh" &
 fi
 
 . /actions-runner/run.sh
