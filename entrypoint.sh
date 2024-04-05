@@ -51,7 +51,7 @@ printf "Executing GitHub Runner for $GITHUB_REPOSITORY\n"
 
 if [[ -n $ECS_TASK_MAX_DURATION_SECONDS ]]; then
 	echo "This task will stop after ${ECS_TASK_MAX_DURATION_SECONDS} seconds"
-	. /home/github/killProcess.sh "run.sh" &
+	. /home/github/killProcess.sh "/actions-runner/run.sh" &
 fi
 
 . /actions-runner/run.sh
