@@ -10,6 +10,9 @@ echo "Task timeout" >&2
 echo "Stop process $PROCESS_TO_FIND with PID: $PID_TO_KILL" >&2
 echo "Process name: $PROCESS_TO_KILL"
 
+# Graceful stop
 kill -s TERM $PID_TO_KILL
-sleep 30s
+# Wait for 30s
+sleep 30
+# Forceful stop
 kill -9 $PID_TO_KILL
