@@ -6,6 +6,7 @@ PROCESS_TO_FIND=$1
 PROCESS_TO_KILL=$(ps -eux | grep -v "grep" | grep "$PROCESS_TO_FIND" | tr -s ' ')
 PID_TO_KILL=$(ps -eux | grep -v "grep" | grep "$PROCESS_TO_FIND" | tr -s ' ' | cut -d ' ' -f 2)
 
+echo $(ps -eux | grep -v "grep")
 echo "Task timeout" >&2
 echo "Stop process $PROCESS_TO_FIND with PID: $PID_TO_KILL" >&2
 echo "Process name: $PROCESS_TO_KILL"
