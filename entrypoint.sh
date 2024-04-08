@@ -54,4 +54,4 @@ if [[ -n $ECS_TASK_MAX_DURATION_SECONDS ]]; then
 	. /home/github/killProcess.sh "/actions-runner/run.sh" &
 fi
 
-. /actions-runner/run.sh
+bash /actions-runner/run.sh
