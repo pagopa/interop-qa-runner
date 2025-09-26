@@ -69,10 +69,12 @@ RUN mv kubectl /usr/local/bin/ && chmod +x /usr/local/bin/kubectl
 
 # install helm from https://helm.sh/docs/intro/install/#from-apt-debianubuntu
 
-RUN curl https://baltocdn.com/helm/signing.asc | apt-key add - && \
-    echo "deb https://baltocdn.com/helm/stable/debian/ all main" | tee /etc/apt/sources.list.d/helm-stable-debian.list
+RUN apt-get install curl gpg apt-transport-https --yes
+RUN curl -fsSL https://packages.buildkite.com/helm-linux/helm-debian/gpgkey | gpg --dearmor | tee /usr/share/keyrings/helm.gpg > /dev/null
+RUN echo "deb [signed-by=/usr/share/keyrings/helm.gpg] https://packages.buildkite.com/helm-linux/helm-debian/any/ any main" | tee /etc/apt/sources.list.d/helm-stable-debian.list
 
-RUN apt-get update && apt-get -y install helm
+RUN apt-get update && apt list -a helm && apt-get -y install helm=3.18.6-1
+RUN helm version
 
 # install mongosh from https://www.mongodb.com/try/download/shell
 
