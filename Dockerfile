@@ -114,10 +114,6 @@ RUN chmod +x ./entrypoint.sh
 
 USER github
 
-# install pnpm
-RUN wget -qO- https://get.pnpm.io/install.sh | ENV="$HOME/.bashrc" SHELL="$(which bash)" bash - 
 ENV HOME=/home/github
-ENV PNPM_HOME="$HOME/.local/share/pnpm"
-ENV PATH="$PNPM_HOME:$PATH"
 
 ENTRYPOINT ["/home/github/entrypoint.sh"]
