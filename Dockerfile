@@ -9,7 +9,7 @@ RUN mkdir actions-runner
 WORKDIR /actions-runner
 
 RUN GITHUB_RUNNER_VERSION="2.338.2" && \
-    GITHUB_RUNNER_VERSION_SHA="109fff505a34014a7e8d1acb850c33d404811102f572b8fb9788e2fff013cc49" && \
+    GITHUB_RUNNER_VERSION_SHA="baebf204307bac6193480852732f0aba2ae97b6c5597c244f4d5558390147c40" && \
     curl -o actions-runner-linux-x64-${GITHUB_RUNNER_VERSION}.tar.gz -L https://github.com/actions/runner/releases/download/v${GITHUB_RUNNER_VERSION}/actions-runner-linux-x64-${GITHUB_RUNNER_VERSION}.tar.gz && \
     echo "${GITHUB_RUNNER_VERSION_SHA}  actions-runner-linux-x64-${GITHUB_RUNNER_VERSION}.tar.gz" | sha256sum -c && \
     tar xzf ./actions-runner-linux-x64-${GITHUB_RUNNER_VERSION}.tar.gz && \
